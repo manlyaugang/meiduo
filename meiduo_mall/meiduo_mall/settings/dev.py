@@ -10,11 +10,17 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
-import os
+import os,sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print(BASE_DIR)
+# BASE_DIR == /home/python/Desktop/meiduo_10/meiduo_mall/meiduo_mall
 
+
+print(sys.path) # 导包路径
+# ['/home/python/Desktop/meiduo_10/meiduo_mall', '/home/python/Desktop/meiduo_10', '/home/python/.virtualenvs/dj_py3/lib/python35.zip', '/home/python/.virtualenvs/dj_py3/lib/python3.5', '/home/python/.virtualenvs/dj_py3/lib/python3.5/plat-x86_64-linux-gnu', '/home/python/.virtualenvs/dj_py3/lib/python3.5/lib-dynload', '/usr/lib/python3.5', '/usr/lib/python3.5/plat-x86_64-linux-gnu', '/home/python/.virtualenvs/dj_py3/lib/python3.5/site-packages']
+# 导包遵守就近原则
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -194,3 +200,9 @@ LOGGING = {
 # import logging
 # logger = logging.getLogger('django')
 # logger.info('yaowoya')
+
+# DRF
+REST_FRAMEWORK = {
+    # 异常处理
+    'EXCEPTION_HANDLER': 'meiduo_mall.utils.exceptions.exception_handler',
+}
